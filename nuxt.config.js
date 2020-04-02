@@ -1,6 +1,9 @@
 
 export default {
   mode: 'spa',
+  router: {
+    base: '/nuxt-demo/'
+  },
   /*
   ** Headers of the page
   */
