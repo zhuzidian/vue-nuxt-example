@@ -33,5 +33,5 @@ jobs:
       - run: node -v
       - run: npm ci
       - run: npm run generate
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v1
+#      - name: Setup tmate session
+#        uses: mxschmitt/action-tmate@v1
