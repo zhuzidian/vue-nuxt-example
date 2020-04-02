@@ -1,0 +1,35 @@
+name: staging deploy
+
+on:
+  push:
+    branches: [ staging ]
+  pull_request:
+    branches: [ staging ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js for use with actions
+        uses: actions/setup-node@v1.1.0
+        with:
+          version: 12.x
+
+      - name: Cache
+        uses: actions/cache@v1.1.2
+        with:
+          # A directory to store and save the cache
+          path: ~/.npm
+          # An explicit key for restoring and saving the cache
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.lock') }}
+          # An ordered list of keys to use for restoring the cache if no cache hit occurred for key
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      
+      - run: node -v
+      - run: npm ci
+      - run: npm run generate
