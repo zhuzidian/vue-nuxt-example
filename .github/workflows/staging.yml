@@ -35,3 +35,9 @@ jobs:
       - run: npm run generate
 #      - name: Setup tmate session
 #        uses: mxschmitt/action-tmate@v1
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./dist
