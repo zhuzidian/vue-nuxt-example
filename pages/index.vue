@@ -68,17 +68,17 @@
     <section class="section">
       <div class="tabs is-toggle is-fullwidth">
         <ul>
-          <li class="is-active">
+          <li :class="{ 'is-active': tabIndex === 1 }" @click="tabIndex = 1">
             <a>
               <span>運行情報</span>
             </a>
           </li>
-          <li>
+          <li :class="{ 'is-active': tabIndex === 2 }" @click="tabIndex = 2">
             <a>
               <span>バス停地図</span>
             </a>
           </li>
-          <li>
+          <li :class="{ 'is-active': tabIndex === 3 }" @click="tabIndex = 3">
             <a>
               <span>時刻表</span>
             </a>
@@ -103,9 +103,10 @@ export default {
     Logo
   },
 
-  data() {
+  data () {
     return {
       burgerActive: false,
+      tabIndex: 1,
     }
   },
 
