@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
           <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
@@ -16,21 +16,21 @@
         </a>
       </div>
 
-      <div class="navbar-menu"
+      <div id="navbarBasicExample" class="navbar-menu"
         :class="{ 'is-active': burgerActive }"
       >
         <div class="navbar-start">
           <a class="navbar-item">
-            ホーム
+            トップ
           </a>
 
           <a class="navbar-item">
-            Documentation
+            ご利用ガード
           </a>
 
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
-              More
+              その他
             </a>
             <div class="navbar-dropdown">
               <a class="navbar-item">
@@ -41,7 +41,10 @@
               </a>
               <hr class="navbar-divider">
               <a class="navbar-item">
-                Report an issue
+                問い合わせ
+              </a>
+              <a class="navbar-item">
+                アンケート
               </a>
             </div>
           </div>
@@ -62,11 +65,27 @@
       </div>
     </nav>
 
-    <div>
-      <p>start</p>
-      <p v-for="i in 100" :key="i">{{ i }}</p>
-      <p>end</p>
-    </div>
+    <section class="section">
+      <div class="tabs is-toggle is-fullwidth">
+        <ul>
+          <li class="is-active">
+            <a>
+              <span>運行情報</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>バス停地図</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>時刻表</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -74,6 +93,12 @@
 import Logo from '~/components/Logo.vue'
 
 export default {
+  head: {
+    bodyAttrs: {
+      class: 'has-navbar-fixed-top'
+    },
+  },
+
   components: {
     Logo
   },
