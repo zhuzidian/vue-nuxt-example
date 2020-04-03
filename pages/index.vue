@@ -1,22 +1,27 @@
 <template>
   <div class="container">
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
           <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
         </a>
 
-        <a role="button" class="navbar-burger burger is-active" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
+          :class="{ 'is-active': burgerActive }"
+          @click="toggleBurger"
+        >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu is-active">
+      <div class="navbar-menu"
+        :class="{ 'is-active': burgerActive }"
+      >
         <div class="navbar-start">
           <a class="navbar-item">
-            Home
+            ホーム
           </a>
 
           <a class="navbar-item">
@@ -27,16 +32,12 @@
             <a class="navbar-link">
               More
             </a>
-
             <div class="navbar-dropdown">
               <a class="navbar-item">
-                About
+                プライバシー
               </a>
               <a class="navbar-item">
-                Jobs
-              </a>
-              <a class="navbar-item">
-                Contact
+                利用規約
               </a>
               <hr class="navbar-divider">
               <a class="navbar-item">
@@ -61,54 +62,9 @@
       </div>
     </nav>
 
-    <div style="height: 1000px; ">
+    <div>
       <p>start</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
+      <p v-for="i in 100" :key="i">{{ i }}</p>
       <p>end</p>
     </div>
   </div>
@@ -120,7 +76,19 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
-  }
+  },
+
+  data() {
+    return {
+      burgerActive: false,
+    }
+  },
+
+  methods: {
+    toggleBurger () {
+      this.burgerActive = !this.burgerActive
+    },
+  },
 }
 </script>
 
