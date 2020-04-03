@@ -16,10 +16,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/nuxt-demo/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css' }
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.css' }
     ],
     script: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js', defer: true }
+      // { src: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.js', defer: true }
     ],
   },
   /*
